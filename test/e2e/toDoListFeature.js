@@ -29,7 +29,7 @@ describe('To Do List', function() {
     addTaskButton.click();
     inputBox.sendKeys('Watch some TV')
     addTaskButton.click();
-    expect(taskList.get(0).getText()).toEqual('Buy some toiletries Edit')
+    expect(taskList.get(0).getText()).toEqual('Buy some toiletries')
   });
 
   it('contains a checkbox', function() {
@@ -64,7 +64,7 @@ describe('To Do List', function() {
     editButtonList.get(0).click();
     editBox.sendKeys('Finish economics homework');
     saveButtonList.get(0).click();
-    expect(taskList.get(0).getText()).toEqual('Finish economics homework Edit')
+    expect(taskList.get(0).getText()).toEqual('Finish economics homework')
   });
 
 });

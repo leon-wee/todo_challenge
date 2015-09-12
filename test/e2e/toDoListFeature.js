@@ -4,6 +4,8 @@ describe('To Do List', function() {
   var addTaskButton = element(by.className('add-btn'))
   var taskList = element.all(by.css('li'))
   var deleteList = element.all(by.className('delete-btn'))
+  var totalCount = element(by.className('total-count'))
+
 
   beforeEach(function() {
     browser.get('http://localhost:8080');
@@ -11,6 +13,12 @@ describe('To Do List', function() {
 
   it('has a title', function() {
     expect(browser.getTitle()).toEqual('To do list')
+  });
+
+  it('clears search box', function() {
+    inputBox.sendKeys('Learn more ruby')
+    addTaskButton.click();
+    expect(inputBox.getText()).toEqual('')
   });
 
   it('shows the tasks when it is added', function() {
@@ -26,8 +34,7 @@ describe('To Do List', function() {
     addTaskButton.click();
     inputBox.sendKeys('test2');
     addTaskButton.click();
-    var totalCount = element(by.className('total-count'))
-    expect(totalCount.getText()).toEqual('2')
+    expect(totalCount.getText()).toEqual('Total Tasks: 2')
   });
 
   it('can delete the tasks on the front-end', function() {
@@ -36,8 +43,7 @@ describe('To Do List', function() {
     inputBox.sendKeys('test2');
     addTaskButton.click();
     deleteList.get(0).click()
-    var totalCount = element(by.className('total-count'))
-    expect(totalCount.getText()).toEqual('1')
+    expect(totalCount.getText()).toEqual('Total Tasks: 1')
   });
 
 });

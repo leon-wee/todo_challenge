@@ -7,6 +7,7 @@ toDoList.controller('ToDoListController', [function() {
     if (_isTaskDuplicated()) {
       taskArray.push(self.inputTask);
       self.allTasks = taskArray
+      self.inputTask = '';
     }
   };
 

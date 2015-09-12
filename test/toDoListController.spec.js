@@ -12,18 +12,33 @@ describe('ToDoListController', function() {
     expect(ctrl.inputTask).toBeUndefined();
   });
 
-  it('stores tasks in to do list', function() {
-    ctrl.inputTask = "Do my laundry"
-    ctrl.addTask();
-    expect(ctrl.allTasks[0]).toEqual('Do my laundry')
+  describe('tasks', function() {
+    beforeEach(function() {
+      ctrl.inputTask = "Do my laundry"
+      ctrl.addTask()
+    });
+
+    it('stores tasks in to do list', function() {
+      expect(ctrl.allTasks[0]).toEqual('Do my laundry')
+    });
+
+    it('will not allow you to add an identical task', function() {
+      ctrl.inputTask = "Do my laundry"
+      ctrl.addTask()
+      expect(ctrl.allTasks).toEqual(['Do my laundry'])
+    });
+
+    it('can delete task on the list', function() {
+      ctrl.deleteTask(0);
+      expect(ctrl.allTasks).toEqual([])
+    });
+
+    it('can count the number of tasks', function() {
+      expect(ctrl.totalTasks()).toEqual(1)
+    });
+
   });
 
-  it('can delete task on the list', function() {
-    ctrl.inputTask = "Do my laundry"
-    ctrl.addTask();
-    ctrl.deleteTask(0);
-    expect(ctrl.allTasks).toEqual([])
-  });
 
 
 });

@@ -1,9 +1,12 @@
 describe('To Do List', function() {
 
   var inputBox = element(by.model('toDoCtrl.inputTask'))
+  var editBox = element(by.model('toDoCtrl.editInput'))
   var addTaskButton = element(by.className('add-btn'))
   var taskList = element.all(by.binding('task'))
   var deleteList = element.all(by.className('delete-btn'))
+  var editButtonList = element.all(by.className('edit'))
+  var saveButtonList = element.all(by.className('save'))
   var totalCount = element(by.className('total-count'))
 
 
@@ -51,6 +54,17 @@ describe('To Do List', function() {
     addTaskButton.click();
     deleteList.get(0).click()
     expect(totalCount.getText()).toEqual('Total Tasks: 1')
+  });
+
+  it('updates tasks', function() {
+    inputBox.sendKeys('test1');
+    addTaskButton.click();
+    inputBox.sendKeys('test2');
+    addTaskButton.click();
+    editButtonList.get(0).click();
+    editBox.sendKeys('Finish economics homework');
+    saveButtonList.get(0).click();
+    expect(taskList.get(0).getText()).toEqual('Finish economics homework Edit')
   });
 
 });

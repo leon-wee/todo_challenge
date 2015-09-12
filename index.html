@@ -8,10 +8,22 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/toDoListController.js"></script>
   </head>
 
-  <body>
+  <body ng-controller="ToDoListController as toDoCtrl">
+    <div>
+      <form>
+        <input type="text" ng-model="toDoCtrl.inputTask" />
+        <button class="btn" ng-click="toDoCtrl.addTask()"></button>
+      </form>
+    </div>
 
+    <ul class="list-group">
+      <li ng-repeat="each in toDoCtrl.allTasks">
+        <p>{{ each.task }}</p>
+      </li>
+    </ul>
   </body>
 
 </html>

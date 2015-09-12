@@ -14,10 +14,6 @@ toDoList.controller('ToDoListController', [function() {
     taskArray.splice(index, 1)
   };
 
-  self.totalTasks = function() {
-    return taskArray.length
-  };
-
   var _isTaskDuplicated = function() {
     return taskArray.indexOf(self.inputTask) === -1
   };

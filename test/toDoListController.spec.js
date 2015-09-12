@@ -33,10 +33,6 @@ describe('ToDoListController', function() {
       expect(ctrl.allTasks).toEqual([])
     });
 
-    it('can count the number of tasks', function() {
-      expect(ctrl.totalTasks()).toEqual(1)
-    });
-
   });
 
 

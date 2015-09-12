@@ -29,11 +29,12 @@ describe('To Do List', function() {
     expect(taskList.get(0).getText()).toEqual('Buy some toiletries')
   });
 
-  // it('contains a checkbox', function() {
-  //   inputBox.sendKeys('Buy some toiletries');
-  //   addTaskButton.click();
-
-  // });
+  it('contains a checkbox', function() {
+    inputBox.sendKeys('Buy some toiletries');
+    addTaskButton.click();
+    var completedCount = element.all(by.className('completed')).count();
+    expect(completedCount).toBe(1);
+  });
 
   it('shows the total number of tasks', function() {
     inputBox.sendKeys('test1');

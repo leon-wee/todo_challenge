@@ -11,10 +11,20 @@ describe('To Do List', function() {
     expect(browser.getTitle()).toEqual('To do list')
   });
 
-  it('shows the number of counts on the list', function() {
+  it('shows the task when it is added', function() {
     inputBox.sendKeys('Buy some toiletries');
     addTaskButton.click();
     var tasks = element.all(by.repeater('task in toDoCtrl.allTasks'))
     expect(tasks.getText()).toEqual(['Buy some toiletries'])
   });
+
+  it('shows the total number of tasks', function() {
+    inputBox.sendKeys('test1');
+    addTaskButton.click();
+    inputBox.sendKeys('test2');
+    addTaskButton.click();
+    var totalCount = element(by.className('total-count'))
+    expect(totalCount.getText()).toEqual('2')
+  });
+
 });

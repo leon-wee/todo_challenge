@@ -15,14 +15,12 @@
     <div>
       <form>
         <input type="text" ng-model="toDoCtrl.inputTask" />
-        <button class="btn" ng-click="toDoCtrl.addTask()"></button>
+        <button class="btn" ng-click="toDoCtrl.addTask()">Add task</button>
       </form>
     </div>
 
-    <ul class="list-group">
-      <li ng-repeat="each in toDoCtrl.allTasks">
-        <p>{{ each.task }}</p>
-      </li>
+    <ul class="list-group" ng-repeat="task in toDoCtrl.allTasks">
+      <li class="list-group-item">{{ task }}</li>
     </ul>
   </body>
 

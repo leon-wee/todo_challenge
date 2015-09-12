@@ -20,8 +20,11 @@
     </div>
 
     <ul class="list-group" ng-repeat="task in toDoCtrl.allTasks">
-      <li class="list-group-item">{{ task }}</li>
-      <button class="delete-btn" ng-click="toDoCtrl.deleteTask($index)">Delete task</button>
+      <li class="list-group-item">
+        <p class="task-list">{{ task }}</p>
+        <input type="checkbox" />
+        <button class="delete-btn" ng-click="toDoCtrl.deleteTask($index)">Delete task</button>
+      </li>
     </ul>
     <p class="total-count">Total Tasks: {{ toDoCtrl.allTasks.length }}</p>
   </body>

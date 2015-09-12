@@ -2,7 +2,7 @@ describe('To Do List', function() {
 
   var inputBox = element(by.model('toDoCtrl.inputTask'))
   var addTaskButton = element(by.className('add-btn'))
-  var taskList = element.all(by.css('li'))
+  var taskList = element.all(by.className('task-list'))
   var deleteList = element.all(by.className('delete-btn'))
   var totalCount = element(by.className('total-count'))
 
@@ -28,6 +28,12 @@ describe('To Do List', function() {
     addTaskButton.click();
     expect(taskList.get(0).getText()).toEqual('Buy some toiletries')
   });
+
+  // it('contains a checkbox', function() {
+  //   inputBox.sendKeys('Buy some toiletries');
+  //   addTaskButton.click();
+
+  // });
 
   it('shows the total number of tasks', function() {
     inputBox.sendKeys('test1');

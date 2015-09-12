@@ -8,8 +8,8 @@ toDoList.controller('ToDoListController', [function() {
     self.allTasks = taskArray
   };
 
-  self.updateTask = function(index) {
-    self.taskArray[index] = self.editTask
+  self.deleteTask = function(index) {
+    taskArray.splice(index, 1)
   };
 
 

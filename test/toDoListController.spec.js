@@ -18,11 +18,12 @@ describe('ToDoListController', function() {
     expect(ctrl.allTasks[0]).toEqual('Do my laundry')
   });
 
-  // it('can update its to do list', function() {
-  //   // ctrl.editTask = "Actually clean my whole house"
-  //   // ctrl.updateTask();
-  //   // expect(ctrl.allTasks[0]).toEqual('Actually clean my whole house')
-  // });
+  it('can delete task on the list', function() {
+    ctrl.inputTask = "Do my laundry"
+    ctrl.addTask();
+    ctrl.deleteTask(0);
+    expect(ctrl.allTasks).toEqual([])
+  });
 
 
 });

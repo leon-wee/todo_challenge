@@ -15,6 +15,12 @@ toDoList.controller('ToDoListController', [function() {
     taskArray.splice(index, 1)
   };
 
+  //untested
+  self.updateTask = function(index) {
+    taskArray[index] = self.editInput
+    self.allTasks = taskArray;
+  };
+
   var _isTaskDuplicated = function() {
     return taskArray.indexOf(self.inputTask) === -1
   };

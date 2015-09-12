@@ -33,6 +33,13 @@ describe('ToDoListController', function() {
       expect(ctrl.allTasks).toEqual([])
     });
 
+    it('updates the task', function() {
+      ctrl.editInput = "Get some ice cream for dinner"
+      ctrl.updateTask(0);
+      expect(ctrl.allTasks[0]).toEqual("Get some ice cream for dinner")
+
+    });
+
   });
 
 

@@ -21,7 +21,13 @@
 
     <ul class="list-group" ng-repeat="task in toDoCtrl.allTasks">
       <li class="list-group-item">
-        <p class="task-list">{{ task }}</p>
+        <span class="task-list" ng-hide="editing">
+          {{ task }} <button ng-click="editing = true">Edit</button>
+        </span>
+        <span ng-show="editing">
+          <input type="text" ng-model="toDoCtrl.editInput">
+          <button ng-click="editing = false; toDoCtrl.updateTask($index)">Save</button>
+        </span>
         <input class="completed" type="checkbox" />
         <button class="delete-btn" ng-click="toDoCtrl.deleteTask($index)">Delete task</button>
       </li>

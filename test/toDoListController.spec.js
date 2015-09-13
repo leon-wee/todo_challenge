@@ -19,13 +19,13 @@ describe('ToDoListController', function() {
     });
 
     it('stores tasks in to do list', function() {
-      expect(ctrl.allTasks[0]).toEqual('Do my laundry')
+      expect(ctrl.allTasks[0].description).toEqual('Do my laundry')
     });
 
-    it('will not allow you to add an identical task', function() {
-      ctrl.inputTask = "Do my laundry"
+    it('will not allow you to add an empty task', function() {
+      ctrl.inputTask = ''
       ctrl.addTask()
-      expect(ctrl.allTasks).toEqual(['Do my laundry'])
+      expect(ctrl.allTasks).toEqual([{ description: 'Do my laundry', editing: false}])
     });
 
     it('can count the number of tasks', function() {
@@ -39,12 +39,6 @@ describe('ToDoListController', function() {
       expect(ctrl.allTasks).toEqual([])
     });
 
-    it('updates the task', function() {
-      ctrl.editInput = "Get some ice cream for dinner"
-      ctrl.updateTask(0);
-      expect(ctrl.allTasks[0]).toEqual("Get some ice cream for dinner")
-
-    });
 
   });
 

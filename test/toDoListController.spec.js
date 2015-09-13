@@ -28,6 +28,12 @@ describe('ToDoListController', function() {
       expect(ctrl.allTasks).toEqual(['Do my laundry'])
     });
 
+    it('can count the number of tasks', function() {
+      ctrl.inputTask = "Let's learn angular"
+      ctrl.addTask()
+      expect(ctrl.totalTasks()).toEqual(2)
+    });
+
     it('can delete task on the list', function() {
       ctrl.deleteTask(0);
       expect(ctrl.allTasks).toEqual([])

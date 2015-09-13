@@ -26,7 +26,7 @@
         </span>
         <span ng-show="editing">
           <input type="text" ng-model="toDoCtrl.editInput">
-          <button class="save" ng-click="editing = false; toDoCtrl.updateTask($index)">Save</button>
+          <button class="save" ng-click="toDoCtrl.updateTask($index); editing = false">Save</button>
         </span>
         <input class="completed" type="checkbox" />
         <button class="delete-btn" ng-click="toDoCtrl.deleteTask($index)">Delete task</button>

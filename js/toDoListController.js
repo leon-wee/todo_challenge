@@ -15,7 +15,10 @@ toDoList.controller('ToDoListController', [function() {
     taskArray.splice(index, 1)
   };
 
-  //untested
+  self.totalTasks = function() {
+    return self.allTasks.length
+  };
+
   self.updateTask = function(index) {
     taskArray[index] = self.editInput
     self.allTasks = taskArray;

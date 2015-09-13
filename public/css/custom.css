@@ -4,12 +4,20 @@
   padding: 20px;
 }
 */
+
+.container {
+  margin-top: 5%;
+  display: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
 span {
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-left: 20px;
+  font-size: 110%;
 }
-
-
 
 button.btn.btn-danger.btn-lg.outline.pull-right {
   transform: scale(0.75, 0.75);
@@ -17,7 +25,12 @@ button.btn.btn-danger.btn-lg.outline.pull-right {
   margin-left: 0px;
 }
 
+.list-group-item {
+  right: 55px;
+}
+
 .input-group {
   width: 78%;
   margin-top: 10px;
+  margin-bottom: 20px;
 }

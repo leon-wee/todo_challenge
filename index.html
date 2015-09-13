@@ -16,7 +16,7 @@
 
     <section class="container col-md-5">
       <form class="input-group">
-        <input type="text" class="form-control" ng-model="toDoCtrl.inputTask" />
+        <input type="text" class="form-control" maxlength="63" ng-model="toDoCtrl.inputTask" />
         <span class="input-group-btn">
           <input type="submit" value="Add task" class="btn btn-default outline" ng-click="toDoCtrl.addTask()">
         </span>

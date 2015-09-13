@@ -32,7 +32,7 @@
         <button class="delete-btn" ng-click="toDoCtrl.deleteTask($index)">Delete task</button>
       </li>
     </ul>
-    <p class="total-count">Total Tasks: {{ toDoCtrl.allTasks.length }}</p>
+    <p class="total-count">Total Tasks: {{ toDoCtrl.totalTasks() }}</p>
   </body>
 
 </html>

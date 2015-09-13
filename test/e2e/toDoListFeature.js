@@ -39,6 +39,10 @@ describe('To Do List', function() {
     expect(completedCount).toBe(1);
   });
 
+  it('start off with 0 total tasks', function() {
+    expect(totalCount.getText()).toEqual('Total Tasks: 0')
+  });
+
   it('shows the total number of tasks', function() {
     inputBox.sendKeys('test1');
     addTaskButton.click();

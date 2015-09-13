@@ -16,7 +16,7 @@ toDoList.controller('ToDoListController', [function() {
   };
 
   self.totalTasks = function() {
-    return self.allTasks.length
+    return taskArray.length
   };
 
   self.updateTask = function(index) {

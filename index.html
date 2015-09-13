@@ -32,8 +32,8 @@
     <p class="total-count">Total Tasks: {{ (toDoCtrl.allTasks | filter: status).length }} / {{ toDoCtrl.allTasks.length }}</p>
 
     <div class="buttons">
-      <button ng-click="status.completed = ''">All</button>
-      <button ng-click="status.completed = 'active'">Active</button>
+      <button class="filter-all" ng-click="status.completed = ''">All</button>
+      <button class="filter-active" ng-click="status.completed = 'active'">Active</button>
       <button class="filter-completed" ng-click="status.completed = 'completed'">Completed</button>
       <button class="clear-completed" ng-click="toDoCtrl.clearCompleted()">Clear Completed</button>
     </div>

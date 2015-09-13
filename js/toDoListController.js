@@ -26,5 +26,14 @@ toDoList.controller('ToDoListController', [function() {
     }
   };
 
+  self.clearCompleted = function() {
+    for (var i = 0; i < self.allTasks.length; i++) {
+      if (self.allTasks[i].completed === 'completed') {
+        self.allTasks.splice(i, 1);
+        i--;
+      }
+    }
+  };
+
 
 }]);

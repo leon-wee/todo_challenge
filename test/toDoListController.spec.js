@@ -28,6 +28,11 @@ describe('ToDoListController', function() {
       expect(ctrl.allTasks).toEqual([{ description: 'Do my laundry', editing: false, completed: 'active'}])
     });
 
+    it('edit tasks status changes to true', function() {
+      ctrl.editTask(ctrl.allTasks[0])
+      expect(ctrl.allTasks[0].editing).toEqual(true)
+    });
+
     it('can delete task on the list', function() {
       ctrl.inputTask = "Learning Sinatra"
       ctrl.addTask()

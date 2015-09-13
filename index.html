@@ -26,7 +26,7 @@
         </span>
         <input ng-show="task.editing" ng-model="task.description" ng-keydown="toDoCtrl.doneEditing(task)" autofocus>
         <input class="completed" type="checkbox" />
-        <button class="delete-btn" ng-click="toDoCtrl.deleteTask($index)">Delete task</button>
+        <button class="delete-btn" ng-click="toDoCtrl.deleteTask(task)">Delete task</button>
       </li>
     </ul>
     <p class="total-count">Total Tasks: {{ toDoCtrl.totalTasks() }}</p>

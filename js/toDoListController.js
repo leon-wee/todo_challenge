@@ -11,7 +11,8 @@ toDoList.controller('ToDoListController', [function() {
     }
   };
 
-  self.deleteTask = function(index) {
+  self.deleteTask = function(task) {
+    var index = taskArray.indexOf(task);
     taskArray.splice(index, 1);
   };
 

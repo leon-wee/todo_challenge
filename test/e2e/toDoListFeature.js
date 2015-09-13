@@ -5,8 +5,6 @@ describe('To Do List', function() {
   var addTaskButton = element(by.className('add-btn'))
   var taskList = element.all(by.binding('task'))
   var deleteList = element.all(by.className('delete-btn'))
-  var editButtonList = element.all(by.className('edit'))
-  var saveButtonList = element.all(by.className('save'))
   var totalCount = element(by.className('total-count'))
 
 

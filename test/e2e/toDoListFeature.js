@@ -8,6 +8,7 @@ describe('To Do List', function() {
   var totalCount = element(by.className('total-count'))
   var checkBox = element.all(by.className('checkbox'))
   var clearCompleted = element(by.className('clear-completed'))
+  var completedFilter = element(by.className('filter-completed'))
 
 
   describe('homepage', function() {
@@ -43,10 +44,13 @@ describe('To Do List', function() {
       expect(inputBox.getText()).toEqual('')
     });
 
-    it('contains a checkbox', function() {
+    it('contains a checkbox for each of them', function() {
       inputBox.sendKeys('Buy some toiletries');
       addTaskButton.click();
+      expect(checkBox.get(0).isSelected()).toEqual(false)
       expect(checkBox.count()).toBe(1);
+      checkBox.get(0).click();
+      expect(checkBox.get(0).isSelected()).toEqual(true)
     });
 
     it('shows the total number of tasks', function() {
@@ -102,8 +106,35 @@ describe('To Do List', function() {
       clearCompleted.click()
       expect(taskList.get(0).getText()).toEqual('test3')
       expect(totalCount.getText()).toEqual('Total Tasks: 1 / 1')
-      // expect(taskList.get(1).getText()).toBeUndefined();
-      // expect(taskList.get(2).getText()).toBeUndefined();
+    });
+  });
+
+  describe('filters', function() {
+    beforeEach(function() {
+      browser.get('http://localhost:8080');
+    });
+
+    it('by showing completed tasks', function() {
+      inputBox.sendKeys('test1');
+      addTaskButton.click();
+      inputBox.sendKeys('test2');
+      addTaskButton.click();
+      inputBox.sendKeys('test3');
+      addTaskButton.click();
+      checkBox.get(2).click();
+      expect(checkBox.get(0).isSelected()).toBe(false)
+      expect(checkBox.get(1).isSelected()).toBe(false)
+      completedFilter.click()
+      expect(totalCount.getText()).toEqual('Total Tasks: 1 / 3')
+      expect(taskList.get(0).getText()).toEqual('test3')
+    });
+
+    it('by showing active tasks', function() {
+
+    });
+
+    it('by showing all tasks', function() {
+
     });
   });
 

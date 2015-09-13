@@ -54,6 +54,17 @@ describe('ToDoListController', function() {
       ctrl.allTasks.splice(0, 1)
       expect(ctrl.allTasks).toEqual([{ description: 'Learning Sinatra', editing: false, completed: 'active' }])
     });
+
+    it('deletes all completed task', function() {
+      ctrl.inputTask = "Learning Sinatra"
+      ctrl.addTask()
+      ctrl.inputTask = "Learning Ruby"
+      ctrl.addTask()
+      ctrl.allTasks[1].completed = 'completed'
+      ctrl.allTasks[2].completed = 'completed'
+      ctrl.clearCompleted();
+      expect(ctrl.allTasks).toEqual([{ description: 'Do my laundry', editing: false, completed: 'active' }])
+     });
   })
 
 

@@ -25,7 +25,7 @@
           {{ task.description }}
         </span>
         <input ng-show="task.editing" ng-model="task.description" ng-keydown="toDoCtrl.doneEditing(task)" autofocus>
-        <input class="completed" type="checkbox" ng-model="task.completed" ng-true-value="'completed'" ng-false-value="'active'" />
+        <input class="checkbox" type="checkbox" ng-model="task.completed" ng-true-value="'completed'" ng-false-value="'active'" />
         <button class="delete-btn" ng-click="toDoCtrl.deleteTask(task)">Delete task</button>
       </li>
     </ul>
@@ -35,7 +35,7 @@
       <button ng-click="status.completed = ''">All</button>
       <button ng-click="status.completed = 'active'">Active</button>
       <button ng-click="status.completed = 'completed'">Completed</button>
-      <button ng-click="toDoCtrl.clearCompleted()">Clear Completed</button>
+      <button class="clear-completed" ng-click="toDoCtrl.clearCompleted()">Clear Completed</button>
     </div>
 
   </body>

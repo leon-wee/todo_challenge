@@ -1,11 +1,13 @@
 describe('To Do List', function() {
 
   var inputBox = element(by.model('toDoCtrl.inputTask'))
-  var editBox = element(by.model('task.description'))
+  var editBox = element.all(by.model('task.description'))
   var addTaskButton = element(by.className('add-btn'))
   var taskList = element.all(by.binding('task'))
   var deleteList = element.all(by.className('delete-btn'))
   var totalCount = element(by.className('total-count'))
+  var checkBox = element.all(by.className('checkbox'))
+  var clearCompleted = element(by.className('clear-completed'))
 
 
   describe('homepage', function() {
@@ -44,8 +46,7 @@ describe('To Do List', function() {
     it('contains a checkbox', function() {
       inputBox.sendKeys('Buy some toiletries');
       addTaskButton.click();
-      var checkBoxCount = element.all(by.className('completed')).count();
-      expect(checkBoxCount).toBe(1);
+      expect(checkBox.count()).toBe(1);
     });
 
     it('shows the total number of tasks', function() {
@@ -68,8 +69,8 @@ describe('To Do List', function() {
       inputBox.sendKeys('test2');
       addTaskButton.click();
       browser.actions().doubleClick(taskList.get(0)).perform();
-      editBox.sendKeys(' Finish economics homework');
-      editBox.sendKeys(protractor.Key.ENTER);
+      editBox.get(0).sendKeys(' Finish economics homework');
+      editBox.get(0).sendKeys(protractor.Key.ENTER);
       expect(taskList.get(0).getText()).toEqual('test1 Finish economics homework')
     });
   });
@@ -79,13 +80,30 @@ describe('To Do List', function() {
       browser.get('http://localhost:8080');
     });
 
-    it('can delete the tasks on the front-end', function() {
+    it('can delete specific task on the front-end', function() {
       inputBox.sendKeys('test1');
       addTaskButton.click();
       inputBox.sendKeys('test2');
       addTaskButton.click();
       deleteList.get(0).click()
+      expect(taskList.get(0).getText()).toEqual('test2')
       expect(totalCount.getText()).toEqual('Total Tasks: 1 / 1')
+    });
+
+    it('can clear completed tasks', function() {
+      inputBox.sendKeys('test1');
+      addTaskButton.click();
+      inputBox.sendKeys('test2');
+      addTaskButton.click();
+      inputBox.sendKeys('test3');
+      addTaskButton.click();
+      checkBox.get(0).click()
+      checkBox.get(1).click()
+      clearCompleted.click()
+      expect(taskList.get(0).getText()).toEqual('test3')
+      expect(totalCount.getText()).toEqual('Total Tasks: 1 / 1')
+      // expect(taskList.get(1).getText()).toBeUndefined();
+      // expect(taskList.get(2).getText()).toBeUndefined();
     });
   });
 

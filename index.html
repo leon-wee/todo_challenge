@@ -18,7 +18,7 @@
       <form class="input-group">
         <input type="text" class="form-control" maxlength="63" ng-model="toDoCtrl.inputTask" />
         <span class="input-group-btn">
-          <input type="submit" value="Add task" class="btn btn-default outline" ng-click="toDoCtrl.addTask()">
+          <input type="submit" value="Add task" class="btn btn-default outline add-btn" ng-click="toDoCtrl.addTask()">
         </span>
       </form>
 
@@ -28,17 +28,17 @@
             {{ task.description }}
           </span>
           <input ng-show="task.editing" ng-model="task.description" ng-keydown="toDoCtrl.doneEditing(task)" autofocus>
-          <button class="btn btn-danger btn-lg outline pull-right" ng-click="toDoCtrl.deleteTask(task)">Delete</button>
+          <button class="btn btn-danger btn-lg outline pull-right delete-btn" ng-click="toDoCtrl.deleteTask(task)">Delete</button>
           <input class="checkbox pull-left" type="checkbox" ng-model="task.completed" ng-true-value="'completed'" ng-false-value="'active'" />
         </li>
       </ul>
       <p class="total-count">Total Tasks: {{ (toDoCtrl.allTasks | filter: status).length }} / {{ toDoCtrl.allTasks.length }}</p>
 
       <div class="buttons">
-        <button class="btn btn-warning btn-lg outline" ng-click="status.completed = ''">All</button>
-        <button class="btn btn-default btn-lg outline" ng-click="status.completed = 'active'">Active</button>
-        <button class="btn btn-default btn-lg outline" ng-click="status.completed = 'completed'">Completed</button>
-        <button class="btn btn-default btn-lg outline" ng-click="toDoCtrl.clearCompleted()">Clear Completed</button>
+        <button class="btn btn-warning btn-lg outline filter-all" ng-click="status.completed = ''">All</button>
+        <button class="btn btn-default btn-lg outline filter-active" ng-click="status.completed = 'active'">Active</button>
+        <button class="btn btn-default btn-lg outline filter-completed" ng-click="status.completed = 'completed'">Completed</button>
+        <button class="btn btn-default btn-lg outline clear-completed" ng-click="toDoCtrl.clearCompleted()">Clear Completed</button>
       </div>
     </section>
 

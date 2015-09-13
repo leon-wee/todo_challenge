@@ -25,21 +25,15 @@ describe('ToDoListController', function() {
     it('will not allow you to add an empty task', function() {
       ctrl.inputTask = ''
       ctrl.addTask()
-      expect(ctrl.allTasks).toEqual([{ description: 'Do my laundry', editing: false}])
-    });
-
-    it('can count the number of tasks', function() {
-      ctrl.inputTask = "Let's learn angular"
-      ctrl.addTask()
-      expect(ctrl.totalTasks()).toEqual(2)
+      expect(ctrl.allTasks).toEqual([{ description: 'Do my laundry', editing: false, completed: 'active'}])
     });
 
     it('can delete task on the list', function() {
       ctrl.inputTask = "Learning Sinatra"
       ctrl.addTask()
-      // can't solve the indexOf method on karma but it works!!!
+      // can't solve the indexOf method on karma but it works on feature tests!!!
       ctrl.allTasks.splice(0, 1)
-      expect(ctrl.allTasks).toEqual([{ description: 'Learning Sinatra', editing: false }])
+      expect(ctrl.allTasks).toEqual([{ description: 'Learning Sinatra', editing: false, completed: 'active' }])
     });
 
 

@@ -19,17 +19,24 @@
       </form>
     </div>
 
-    <ul class="list-group" ng-repeat="task in toDoCtrl.allTasks">
+    <ul class="list-group" ng-repeat="task in toDoCtrl.allTasks | filter: status">
       <li class="list-group-item">
         <span ng-hide="task.editing" ng-dblclick="toDoCtrl.editTask(task)">
           {{ task.description }}
         </span>
         <input ng-show="task.editing" ng-model="task.description" ng-keydown="toDoCtrl.doneEditing(task)" autofocus>
-        <input class="completed" type="checkbox" />
+        <input class="completed" type="checkbox" ng-model="task.completed" ng-true-value="'completed'" ng-false-value="'active'" />
         <button class="delete-btn" ng-click="toDoCtrl.deleteTask(task)">Delete task</button>
       </li>
     </ul>
-    <p class="total-count">Total Tasks: {{ toDoCtrl.totalTasks() }}</p>
+    <p class="total-count">Total Tasks: {{ (toDoCtrl.allTasks | filter: status).length }} / {{ toDoCtrl.allTasks.length }}</p>
+
+    <div class="buttons">
+      <button ng-click="status.completed = ''">All</button>
+      <button ng-click="status.completed = 'active'">Active</button>
+      <button ng-click="status.completed = 'completed'">Completed</button>
+    </div>
+
   </body>
 
 </html>

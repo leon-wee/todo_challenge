@@ -5,7 +5,7 @@ toDoList.controller('ToDoListController', [function() {
 
   self.addTask = function() {
     if (self.inputTask) {
-      taskArray.push({ description: self.inputTask, editing: false });
+      taskArray.push({ description: self.inputTask, editing: false, completed: 'active' });
       self.allTasks = taskArray
       self.inputTask = '';
     }
@@ -14,10 +14,6 @@ toDoList.controller('ToDoListController', [function() {
   self.deleteTask = function(task) {
     var index = taskArray.indexOf(task);
     self.allTasks.splice(index, 1);
-  };
-
-  self.totalTasks = function() {
-    return taskArray.length;
   };
 
   self.editTask = function(task) {

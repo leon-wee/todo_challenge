@@ -1,0 +1,23 @@
+/*li.list-group-item {
+  width: 50%;
+  padding-bottom: 30px;
+  padding: 20px;
+}
+*/
+span {
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-left: 20px;
+}
+
+
+
+button.btn.btn-danger.btn-lg.outline.pull-right {
+  transform: scale(0.75, 0.75);
+  margin-top: -13px;
+  margin-left: 0px;
+}
+
+.input-group {
+  width: 78%;
+  margin-top: 10px;
+}

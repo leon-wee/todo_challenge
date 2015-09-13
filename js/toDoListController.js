@@ -9,15 +9,14 @@ toDoList.controller('ToDoListController', [function() {
       self.allTasks = taskArray
       self.inputTask = '';
     }
-    console.log(self.allTasks[0].description)
   };
 
   self.deleteTask = function(index) {
-    taskArray.splice(index, 1)
+    taskArray.splice(index, 1);
   };
 
   self.totalTasks = function() {
-    return taskArray.length
+    return taskArray.length;
   };
 
   self.editTask = function(task) {

@@ -1,7 +1,7 @@
 describe('To Do List', function() {
 
   var inputBox = element(by.model('toDoCtrl.inputTask'))
-  var editBox = element(by.model('toDoCtrl.editInput'))
+  var editBox = element(by.model('task.description'))
   var addTaskButton = element(by.className('add-btn'))
   var taskList = element.all(by.binding('task'))
   var deleteList = element.all(by.className('delete-btn'))
@@ -65,10 +65,10 @@ describe('To Do List', function() {
     addTaskButton.click();
     inputBox.sendKeys('test2');
     addTaskButton.click();
-    editButtonList.get(0).click();
-    editBox.sendKeys('Finish economics homework');
-    saveButtonList.get(0).click();
-    expect(taskList.get(0).getText()).toEqual('Finish economics homework')
+    browser.actions().doubleClick(taskList.get(0)).perform();
+    editBox.sendKeys(' Finish economics homework');
+    editBox.sendKeys(protractor.Key.ENTER);
+    expect(taskList.get(0).getText()).toEqual('test1 Finish economics homework')
   });
 
 });

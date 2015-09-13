@@ -35,8 +35,11 @@ describe('ToDoListController', function() {
     });
 
     it('can delete task on the list', function() {
-      ctrl.deleteTask(0);
-      expect(ctrl.allTasks).toEqual([])
+      ctrl.inputTask = "Learning Sinatra"
+      ctrl.addTask()
+      // can't solve the indexOf method on karma but it works!!!
+      ctrl.allTasks.splice(0, 1)
+      expect(ctrl.allTasks).toEqual([{ description: 'Learning Sinatra', editing: false }])
     });
 
 

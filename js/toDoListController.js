@@ -13,7 +13,7 @@ toDoList.controller('ToDoListController', [function() {
 
   self.deleteTask = function(task) {
     var index = taskArray.indexOf(task);
-    taskArray.splice(index, 1);
+    self.allTasks.splice(index, 1);
   };
 
   self.totalTasks = function() {

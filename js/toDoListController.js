@@ -5,10 +5,11 @@ toDoList.controller('ToDoListController', [function() {
 
   self.addTask = function() {
     if (_isTaskDuplicated()) {
-      taskArray.push(self.inputTask);
+      taskArray.push({ description: self.inputTask, editing: false });
       self.allTasks = taskArray
       self.inputTask = '';
     }
+    console.log(self.allTasks[0].description)
   };
 
   self.deleteTask = function(index) {
@@ -20,8 +21,18 @@ toDoList.controller('ToDoListController', [function() {
   };
 
   self.updateTask = function(index) {
-    taskArray[index] = self.editInput
+    taskArray[index].description = self.editInput
     self.allTasks = taskArray;
+  };
+
+  self.editTask = function(task) {
+    task.editing = true;
+  };
+
+  self.doneEditing = function(task) {
+    if(event.keyCode == 13 && task.description) {
+      task.editing = false;
+    }
   };
 
   var _isTaskDuplicated = function() {

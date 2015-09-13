@@ -38,7 +38,7 @@ describe('To Do List', function() {
   });
 
   it('start off with 0 total tasks', function() {
-    expect(totalCount.getText()).toEqual('Total Tasks: 0')
+    expect(totalCount.getText()).toEqual('Total Tasks: /')
   });
 
   it('shows the total number of tasks', function() {
@@ -46,7 +46,7 @@ describe('To Do List', function() {
     addTaskButton.click();
     inputBox.sendKeys('test2');
     addTaskButton.click();
-    expect(totalCount.getText()).toEqual('Total Tasks: 2')
+    expect(totalCount.getText()).toEqual('Total Tasks: 2 / 2')
   });
 
   it('can delete the tasks on the front-end', function() {
@@ -55,7 +55,7 @@ describe('To Do List', function() {
     inputBox.sendKeys('test2');
     addTaskButton.click();
     deleteList.get(0).click()
-    expect(totalCount.getText()).toEqual('Total Tasks: 1')
+    expect(totalCount.getText()).toEqual('Total Tasks: 1 / 1')
   });
 
   it('updates tasks', function() {
